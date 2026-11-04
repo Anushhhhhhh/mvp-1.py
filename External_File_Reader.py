@@ -7,8 +7,8 @@ Created on Fri Jun 26 04:37:46 2026
 import pandas as pd
 import os
 # Credimax
-print(os.getcwd())
-os.chdir("/Users/anushervonsattorov/Streamlit_Recon_App_Pagsmile")
+# print(os.getcwd())
+# os.chdir("/Users/anushervonsattorov/Streamlit_Recon_App_Pagsmile")
 def payvalida_ecuador_payout_reader(report_dir):
 
     df_merged_external = pd.DataFrame()
