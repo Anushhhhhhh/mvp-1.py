@@ -194,7 +194,7 @@ if bankstatement_path:
         try:
             df_bank_statement = pd.read_csv(reading_bank)
         except Exception:
-            df_bank_statement = pd.read_excel(reading_bank, skiprows=14, 
+            df_bank_statement = pd.read_excel(reading_bank, skiprows=13, 
                                               skipfooter = 1,
                                               engine='openpyxl')
         except:
