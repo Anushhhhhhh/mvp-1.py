@@ -194,7 +194,9 @@ if bankstatement_path:
         try:
             df_bank_statement = pd.read_csv(reading_bank)
         except Exception:
-            df_bank_statement = pd.read_excel(reading_bank, skiprows=14, engine='openpyxl')
+            df_bank_statement = pd.read_excel(reading_bank, skiprows=14, 
+                                              skipfooter = 1,
+                                              engine='openpyxl')
         except:
             print(f"we were not able to process the bank statement {bankstatement_path}.. please check the format!")
 
