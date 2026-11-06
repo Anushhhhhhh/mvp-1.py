@@ -24,6 +24,11 @@ external_file_path = st.file_uploader("""Please upload the external file""",
 internal_file_path = st.file_uploader("""Please upload the internal file""",
                                       type = None,
                                       accept_multiple_files=True)
+
+bankstatement_path = st.file_uploader("Please upload the bank statement",
+                                    type = None,
+                                    accept_multiple_files=True)
+
 date_range_for_recon = st.date_input(label = "Please Choose the Reconciliation Period of the Channel:",
                                      value=(datetime.strptime("2026-01-01","%Y-%m-%d"),
                                             datetime.strptime("2026-02-01","%Y-%m-%d")))
