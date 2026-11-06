@@ -191,22 +191,41 @@ st.write(summarize_external_daily)
 # Bank reading and upload
 if bankstatement_path:
     for reading_bank in bankstatement_path:
+        reading_bank.seek(0)
+
         try:
             df_bank_statement = pd.read_csv(reading_bank)
+
         except Exception:
-            df_bank_statement = pd.read_excel(reading_bank, skiprows=13, 
-                                              skipfooter = 1,
-                                              engine='openpyxl')
-        
-        except Exception:
-        
-      
-          reading_bank.seek(0)
-          df_bank_statement = pd.read_excel(
-              reading_bank,
-              skiprows=15,
-              engine="openpyxl"
-          )
+            reading_bank.seek(0)
+
+            try:
+                df_bank_statement = pd.read_excel(
+                    reading_bank,
+                    skiprows=13,
+                    skipfooter=1,
+                    engine="openpyxl"
+                )
+
+                df_bank_statement.columns = (
+                    df_bank_statement.columns.astype(str).str.strip()
+                )
+
+                if "FECHA" not in df_bank_statement.columns:
+                    raise ValueError("FECHA header not found.")
+
+            except Exception:
+                reading_bank.seek(0)
+
+                df_bank_statement = pd.read_excel(
+                    reading_bank,
+                    skiprows=15,
+                    engine="openpyxl"
+                )
+
+                df_bank_statement.columns = (
+                    df_bank_statement.columns.astype(str).str.strip()
+                )
 
 else:
     st.stop()
