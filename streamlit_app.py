@@ -121,10 +121,10 @@ st.write(result_of_external_reconciliation)
 
 # Check for duplicates
 duplicates_internal_reconciliation = Reconciliation_Scrypt_Payin_adj_streamlit_a.duplicate_checker(
-    result_of_internal_reconciliation,"transaction_id_int")
+    reconciliation_of_internal_adjusted_period,"transaction_id_int")
 
 duplicates_external_reconciliation = Reconciliation_Scrypt_Payin_adj_streamlit_a.duplicate_checker(
-    result_of_external_reconciliation,"Referencia 3")
+    reconciliation_of_external_adjusted_period,"Referencia 3")
 
 # Calculate fees and VAT
 
