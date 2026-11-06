@@ -189,11 +189,6 @@ st.write("Summary daily")
 st.write(summarize_external_daily)
 
 # Bank reading and upload
-bankstatement_path = st.file_uploader("Please upload the bank statement",
-                                    type = None,
-                                    accept_multiple_files=True)
-
-
 if bankstatement_path:
     for reading_bank in bankstatement_path:
         try:
